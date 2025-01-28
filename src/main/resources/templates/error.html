@@ -7,40 +7,81 @@
         <title>Error Page</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
             }
 
-            .error {
-                color: red;
-                font-size: 24px;
+            .error-container {
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                max-width: 900px;
+                text-align: center;
+            }
+
+            .error-container h1 {
+                color: #ff4d4f;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .error-container .error {
+                color: #ff6b6b;
+                font-size: 22px;
                 font-weight: bold;
             }
 
-            .message {
+            .error-container .message {
                 font-size: 18px;
-                margin-top: 10px;
+                color: #555;
+                margin: 20px 0;
             }
 
-            .back-link {
-                margin-top: 20px;
+            .error-container .back-link a {
+                display: inline-block;
+                text-decoration: none;
+                color: #fff;
+                background-color: #007bff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+
+            .error-container .back-link a:hover {
+                background-color: #0056b3;
+            }
+
+            .error-container .back-link a:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
             }
         </style>
     </head>
 
     <body>
 
-        <h1>Error Occurred</h1>
+        <div class="error-container">
+            <h1>Error Occurred</h1>
 
-        <div class="error">
-            <p><strong>${error}</strong></p>
-        </div>
-        <div class="message">
-            <p>${message}</p>
-        </div>
+            <div class="error">
+                <p><strong th:text="${error}"></strong></p>
+            </div>
+            <div class="message">
+                <p th:text="${message}"></p>
+            </div>
 
-        <div class="back-link">
-            <p><a href="/">Go back to homepage</a></p>
+            <div class="back-link">
+                <a href="/">Go back to homepage</a>
+            </div>
         </div>
 
     </body>
